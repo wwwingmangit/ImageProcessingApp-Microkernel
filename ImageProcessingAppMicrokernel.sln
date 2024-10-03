@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{88E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrayscalePlugin", "Plugins\GrayscalePlugin\GrayscalePlugin.csproj", "{A3249B18-9F98-4302-BE9E-69366B2F9386}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InversionPlugin", "Plugins\InversionPlugin\InversionPlugin.csproj", "{81999787-B54A-4F98-8294-23D87090E815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AITextDescriptionPlugin", "Plugins\AITextDescriptionPlugin\AITextDescriptionPlugin.csproj", "{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +33,21 @@ Global
 		{A3249B18-9F98-4302-BE9E-69366B2F9386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3249B18-9F98-4302-BE9E-69366B2F9386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3249B18-9F98-4302-BE9E-69366B2F9386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81999787-B54A-4F98-8294-23D87090E815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81999787-B54A-4F98-8294-23D87090E815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81999787-B54A-4F98-8294-23D87090E815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81999787-B54A-4F98-8294-23D87090E815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A3249B18-9F98-4302-BE9E-69366B2F9386} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
+		{81999787-B54A-4F98-8294-23D87090E815} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
+		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
 	EndGlobalSection
 EndGlobal
