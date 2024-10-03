@@ -1,7 +1,13 @@
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using CoreApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+// Register PluginLoader as a singleton
+builder.Services.AddSingleton<PluginLoader>();
 
 var app = builder.Build();
 

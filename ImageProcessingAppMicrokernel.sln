@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginInterfaces", "PluginI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{88E3204B-C0C9-4701-B38E-1E15CC7D39A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrayscalePlugin", "Plugins\GrayscalePlugin\GrayscalePlugin.csproj", "{A3249B18-9F98-4302-BE9E-69366B2F9386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrayscalePlugin", "Plugins\GrayscalePlugin\GrayscalePlugin.csproj", "{A3249B18-9F98-4302-BE9E-69366B2F9386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InversionPlugin", "Plugins\InversionPlugin\InversionPlugin.csproj", "{81999787-B54A-4F98-8294-23D87090E815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InversionPlugin", "Plugins\InversionPlugin\InversionPlugin.csproj", "{81999787-B54A-4F98-8294-23D87090E815}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AITextDescriptionPlugin", "Plugins\AITextDescriptionPlugin\AITextDescriptionPlugin.csproj", "{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AITextDescriptionPlugin", "Plugins\AITextDescriptionPlugin\AITextDescriptionPlugin.csproj", "{8FA66561-778A-421C-95D1-FBEA0AB2A5C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,5 +49,8 @@ Global
 		{A3249B18-9F98-4302-BE9E-69366B2F9386} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
 		{81999787-B54A-4F98-8294-23D87090E815} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
 		{8FA66561-778A-421C-95D1-FBEA0AB2A5C7} = {88E3204B-C0C9-4701-B38E-1E15CC7D39A8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FED1B890-B5FF-485C-BD19-69B13B81BA73}
 	EndGlobalSection
 EndGlobal

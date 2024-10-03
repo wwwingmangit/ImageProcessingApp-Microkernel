@@ -1,0 +1,18 @@
+﻿@model CoreApp.Models.ImageResultModel
+@{
+    ViewData["Title"] = "Image Result";
+}
+
+<h2>@Model.PluginName Result</h2>
+
+<div style="display: flex; align-items: flex-start;">
+    <div style="margin-right: 20px; text-align: center;">
+        <h3>Original Image</h3>
+        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.OriginalImage)" alt="Original Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <div style="text-align: center;">
+        <h3>Processed Image</h3>
+        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProcessedImage)" alt="Processed Image" style="max-width: 100%; height: auto;" />
+    </div>
+</div>

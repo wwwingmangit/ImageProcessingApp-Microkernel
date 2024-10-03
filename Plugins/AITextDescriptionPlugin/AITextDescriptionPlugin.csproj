@@ -1,18 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\PluginInterfaces\PluginInterfaces.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
-  <Target Name="CopyToPlugins" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetDir)$(TargetFileName)" DestinationFolder="$(SolutionDir)CoreApp/Plugins" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\PluginInterfaces\PluginInterfaces.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyToCoreAppPlugins" AfterTargets="Build">
+    <PropertyGroup>
+      <!-- Define the CoreApp output directory -->
+      <CoreAppOutputDir>$(SolutionDir)CoreApp\bin\$(Configuration)\$(TargetFramework)</CoreAppOutputDir>
+    </PropertyGroup>
+    <!-- Create the Plugins directory in the CoreApp output directory -->
+    <MakeDir Directories="$(CoreAppOutputDir)\Plugins" Condition="!Exists('$(CoreAppOutputDir)\Plugins')" />
+    <!-- Copy the plugin DLL to the Plugins directory -->
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(CoreAppOutputDir)\Plugins" />
   </Target>
 
 </Project>

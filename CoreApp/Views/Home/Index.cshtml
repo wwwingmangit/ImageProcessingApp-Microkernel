@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model CoreApp.Models.PluginSelectionModel
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Upload Image and Select Plugin</h2>
+
+<form asp-action="ProcessImage" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file">Select an image to upload:</label>
+        <input type="file" name="file" id="file" accept="image/*" required />
+    </div>
+    <div>
+        <label for="pluginSelect">Select a plugin:</label>
+        <select name="pluginName" id="pluginSelect" required>
+            <optgroup label="Image Plugins">
+                @foreach (var plugin in Model.ImagePlugins)
+                {
+                    <option value="@plugin.Name">@plugin.Name</option>
+                }
+            </optgroup>
+            <optgroup label="Text Plugins">
+                @foreach (var plugin in Model.TextPlugins)
+                {
+                    <option value="@plugin.Name">@plugin.Name</option>
+                }
+            </optgroup>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Process Image</button>
+    </div>
+</form>
