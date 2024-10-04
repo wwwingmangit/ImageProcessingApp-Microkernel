@@ -29,6 +29,7 @@ namespace CoreApp.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> ProcessImage(IFormFile file, string pluginName)
         {
             if (file != null && file.Length > 0)
@@ -52,7 +53,7 @@ namespace CoreApp.Controllers
                 if (textPlugin != null)
                 {
                     var resultText = textPlugin.ProcessImage(imageData);
-                    var model = new TextResultModel(resultText, textPlugin.Name);
+                    var model = new TextResultModel(imageData, resultText, textPlugin.Name);
                     return View("TextResult", model);
                 }
 

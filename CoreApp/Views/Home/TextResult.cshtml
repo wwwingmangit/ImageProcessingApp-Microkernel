@@ -3,8 +3,29 @@
     ViewData["Title"] = "Text Result";
 }
 
-<h2>@Model.PluginName Result</h2>
+<!-- Include Bootstrap CSS if not already included in your _Layout.cshtml -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div>
-    <p>@Model.ResultText</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">@Model.PluginName Result</h2>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h3>Original Image</h3>
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.OriginalImage)" alt="Original Image" class="img-fluid img-thumbnail" />
+        </div>
+        <div class="col-md-6">
+            <h3>Extracted Text</h3>
+            <div class="border p-3" style="white-space: pre-wrap; background-color: #f8f9fa;">
+                @Model.ResultText
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 text-center">
+        <a href="/" class="btn btn-primary">Process Another Image</a>
+    </div>
 </div>
+
+<!-- Include Bootstrap JS and dependencies if not already included -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
