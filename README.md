@@ -1,5 +1,7 @@
 # ImageProcessingApp-Microkernel
 
+[This project was initially presented on my LinkedIn, here](https://www.linkedin.com/feed/update/urn:li:activity:7248077512725917699/)
+
 ## Overview
 
 ImageProcessingApp-Microkernel is a flexible and extensible image processing application built using the Microkernel Architecture. Developed with C# and .NET Core, the application allows users to upload images and apply various processing plugins such as grayscale filtering, horizontal inversion, and AI automatic text analysis (image to text). The modular design ensures that new functionalities can be seamlessly integrated as plugins without altering the core system, promoting scalability and maintainability.
@@ -7,6 +9,8 @@ ImageProcessingApp-Microkernel is a flexible and extensible image processing app
 ## Architecture
 
 The application is structured around the Microkernel Architecture, where the Core System serves as the minimal backbone handling essential functionalities like the user interface, plugin management, and workflow orchestration. Specific image processing tasks are encapsulated within Plugins, which adhere to predefined interfaces (IImagePlugin and ITextPlugin). These plugins are dynamically loaded at runtime, enabling the application to extend its capabilities without requiring significant changes to the core.
+
+![MicroKernel Architecture](https://github.com/wwwingmangit/ImageProcessingApp-Microkernel/raw/main/ImagesForREADME/MicroKernelArchitecture.png)
 
 ## Core System Components:
 
