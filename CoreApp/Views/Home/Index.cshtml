@@ -3,31 +3,40 @@
     ViewData["Title"] = "Home";
 }
 
-<h2>Upload Image and Select Plugin</h2>
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<form asp-action="ProcessImage" method="post" enctype="multipart/form-data">
-    <div>
-        <label for="file">Select an image to upload:</label>
-        <input type="file" name="file" id="file" accept="image/*" required />
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Image Processing Application</h2>
+    <div class="card p-4">
+        <form asp-action="ProcessImage" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select an image to upload:</label>
+                <input type="file" name="file" id="file" accept="image/*" class="form-control-file" required />
+            </div>
+            <div class="form-group">
+                <label for="pluginSelect">Select a plugin:</label>
+                <select name="pluginName" id="pluginSelect" class="form-control" required>
+                    <optgroup label="Image Plugins">
+                        @foreach (var plugin in Model.ImagePlugins)
+                        {
+                            <option value="@plugin.Name">@plugin.Name</option>
+                        }
+                    </optgroup>
+                    <optgroup label="Text Plugins">
+                        @foreach (var plugin in Model.TextPlugins)
+                        {
+                            <option value="@plugin.Name">@plugin.Name</option>
+                        }
+                    </optgroup>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Process Image</button>
+        </form>
     </div>
-    <div>
-        <label for="pluginSelect">Select a plugin:</label>
-        <select name="pluginName" id="pluginSelect" required>
-            <optgroup label="Image Plugins">
-                @foreach (var plugin in Model.ImagePlugins)
-                {
-                    <option value="@plugin.Name">@plugin.Name</option>
-                }
-            </optgroup>
-            <optgroup label="Text Plugins">
-                @foreach (var plugin in Model.TextPlugins)
-                {
-                    <option value="@plugin.Name">@plugin.Name</option>
-                }
-            </optgroup>
-        </select>
-    </div>
-    <div>
-        <button type="submit">Process Image</button>
-    </div>
-</form>
+</div>
+
+<!-- Include Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

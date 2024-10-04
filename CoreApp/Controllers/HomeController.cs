@@ -29,6 +29,7 @@ namespace CoreApp.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> ProcessImage(IFormFile file, string pluginName)
         {
             if (file != null && file.Length > 0)
@@ -44,12 +45,7 @@ namespace CoreApp.Controllers
                 if (imagePlugin != null)
                 {
                     var processedImage = imagePlugin.ProcessImage(imageData);
-                    var model = new ImageResultModel
-                    {
-                        OriginalImage = imageData,
-                        ProcessedImage = processedImage,
-                        PluginName = imagePlugin.Name
-                    };
+                    var model = new ImageResultModel(imageData, processedImage, imagePlugin.Name);
                     return View("ImageResult", model);
                 }
 
@@ -57,11 +53,7 @@ namespace CoreApp.Controllers
                 if (textPlugin != null)
                 {
                     var resultText = textPlugin.ProcessImage(imageData);
-                    var model = new TextResultModel
-                    {
-                        ResultText = resultText,
-                        PluginName = textPlugin.Name
-                    };
+                    var model = new TextResultModel(imageData, resultText, textPlugin.Name);
                     return View("TextResult", model);
                 }
 

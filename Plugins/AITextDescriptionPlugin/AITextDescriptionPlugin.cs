@@ -38,7 +38,11 @@ namespace AITextDescriptionPlugin
             }
 
             // Then call the OLLAMA API to get the description
-            string description = SendToOllamaAsync(base64Image, "What is in this picture?").Result;
+            string? description = SendToOllamaAsync(base64Image, "What is in this picture?").Result;
+            if (string.IsNullOrEmpty(description))
+            {
+                return "Error: pluging was unable to generate a text description";
+            }
 
             return description;
         }
@@ -59,7 +63,7 @@ namespace AITextDescriptionPlugin
             }
         }
 
-        private async Task<string> SendToOllamaAsync(string base64Image, string prompt)
+        private async Task<string?> SendToOllamaAsync(string base64Image, string prompt)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -71,13 +75,25 @@ namespace AITextDescriptionPlugin
                 );
 
                 HttpResponseMessage response = await client.PostAsync("http://localhost:11434/api/generate", requestContent);
-                response.EnsureSuccessStatusCode();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
 
                 // Read the full response as a string
-                string responseContent = await response.Content.ReadAsStringAsync();
+                string? responseContent = await response.Content.ReadAsStringAsync();
+                if (string.IsNullOrEmpty(responseContent))
+                {
+                    return null; 
+                }
 
                 // Parse and return the "response" field from the JSON
-                dynamic jsonResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(responseContent);
+                dynamic? jsonResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(responseContent);
+                if (jsonResponse?.response == null)
+                {
+                    return null; 
+                }
+
                 return jsonResponse.response.ToString();
             }
         }

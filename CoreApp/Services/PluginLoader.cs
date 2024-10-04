@@ -45,15 +45,21 @@ namespace CoreApp.Services
                     {
                         if (typeof(IImagePlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                         {
-                            var pluginInstance = (IImagePlugin)Activator.CreateInstance(type);
-                            ImagePlugins.Add(pluginInstance);
-                            Console.WriteLine($"Loaded image plugin: {pluginInstance.Name}");
+                            var pluginInstance = Activator.CreateInstance(type) as IImagePlugin;
+                            if (pluginInstance != null) // Ensure instance is not null
+                            {
+                                ImagePlugins.Add(pluginInstance);
+                                Console.WriteLine($"Loaded image plugin: {pluginInstance.Name}");
+                            }
                         }
                         else if (typeof(ITextPlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                         {
-                            var pluginInstance = (ITextPlugin)Activator.CreateInstance(type);
-                            TextPlugins.Add(pluginInstance);
-                            Console.WriteLine($"Loaded text plugin: {pluginInstance.Name}");
+                            var pluginInstance = Activator.CreateInstance(type) as ITextPlugin;
+                            if (pluginInstance != null) // Ensure instance is not null
+                            {
+                                TextPlugins.Add(pluginInstance);
+                                Console.WriteLine($"Loaded text plugin: {pluginInstance.Name}");
+                            }
                         }
                     }
                 }
