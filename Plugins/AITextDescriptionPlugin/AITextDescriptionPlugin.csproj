@@ -10,6 +10,10 @@
     <ProjectReference Include="..\..\PluginInterfaces\PluginInterfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
   <Target Name="CopyToCoreAppPlugins" AfterTargets="Build">
     <PropertyGroup>
       <!-- Define the CoreApp output directory -->
