@@ -44,12 +44,7 @@ namespace CoreApp.Controllers
                 if (imagePlugin != null)
                 {
                     var processedImage = imagePlugin.ProcessImage(imageData);
-                    var model = new ImageResultModel
-                    {
-                        OriginalImage = imageData,
-                        ProcessedImage = processedImage,
-                        PluginName = imagePlugin.Name
-                    };
+                    var model = new ImageResultModel(imageData, processedImage, imagePlugin.Name);
                     return View("ImageResult", model);
                 }
 
@@ -57,11 +52,7 @@ namespace CoreApp.Controllers
                 if (textPlugin != null)
                 {
                     var resultText = textPlugin.ProcessImage(imageData);
-                    var model = new TextResultModel
-                    {
-                        ResultText = resultText,
-                        PluginName = textPlugin.Name
-                    };
+                    var model = new TextResultModel(resultText, textPlugin.Name);
                     return View("TextResult", model);
                 }
 
