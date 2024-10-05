@@ -46,6 +46,7 @@ The application is structured around the Microkernel Architecture, where the Cor
 * Image Processing Library: SixLabors.ImageSharp
 * Styling Framework: Bootstrap 4
 * Version Control: GitHub
+* External server: OLLAMA using Llava model (7.2B parameters)
 
 ## Plugin Development
 
